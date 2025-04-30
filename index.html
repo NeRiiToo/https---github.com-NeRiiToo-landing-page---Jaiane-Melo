@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dra. Jaiane Melo - Direito Previdenciário</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    :root {
+      --vermelho: #910303;
+      --vermelho-dark: #6b0000;
+      --dourado: #C9A227;
+      --cinza-claro: #f5f5f5;
+      --branco: #ffffff;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--cinza-claro);
+      color: var(--vermelho);
+      line-height: 1.6;
+    }
+    .sticky-header {
+      position: sticky;
+      top: 0;
+      background-color: #ffffff;
+      padding: 16px 40px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+      z-index: 1000;
+    }
+    .sticky-header nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .sticky-header nav .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--vermelho);
+      font-weight: bold;
+    }
+    .sticky-header nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+    .sticky-header nav ul li a {
+      text-decoration: none;
+      color: var(--vermelho);
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    .sticky-header nav ul li a:hover {
+      color: var(--vermelho-dark);
+    }
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 60px 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+      gap: 40px;
+    }
+    .hero-img {
+      flex: 1;
+      max-width: 450px;
+      display: flex;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+    }
+    .hero-img::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 50%;
+      background: linear-gradient(to right, #f5f5f5 25%, rgba(255,255,255,0) 100%);
+      z-index: 2;
+    }
+    .hero-img img {
+      max-height: 420px;
+      width: auto;
+      object-fit: cover;
+      z-index: 1;
+      position: relative;
+      border-top-right-radius: 32px;
+      border-bottom-right-radius: 32px;
+    }
+    .hero-text {
+      flex: 1;
+      min-width: 280px;
+    }
+    .hero-text h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      color: var(--vermelho);
+      margin-bottom: 20px;
+    }
+    .hero-text p {
+      font-size: 1.1rem;
+      color: #333;
+      margin-bottom: 20px;
+    }
+    .hero-text a {
+      background-color: var(--vermelho);
+      color: var(--branco);
+      padding: 12px 24px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: background 0.3s ease;
+    }
+    .hero-text a:hover {
+      background-color: var(--vermelho-dark);
+    }
+    section {
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .form-section form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    input {
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    .form-section button {
+      background-color: var(--vermelho);
+      color: white;
+      padding: 15px;
+      border: none;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .form-section button:hover {
+      background-color: var(--vermelho-dark);
+    }
+    .timeline {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+    .timeline-step {
+      background: var(--branco);
+      padding: 25px;
+      border-radius: 12px;
+      border-top: 4px solid var(--vermelho);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      width: 240px;
+    }
+    .step-number {
+      background-color: var(--vermelho);
+      color: white;
+      width: 40px;
+      height: 40px;
+      margin: 0 auto 10px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    .about-section {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      padding: 60px 20px;
+      background-color: #f9f9f9;
+    }
+    .about-video {
+      flex: 1;
+      max-width: 500px;
+    }
+    .about-video iframe {
+      width: 100%;
+      height: 280px;
+      border: none;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
+    .about-text {
+      flex: 1;
+      max-width: 600px;
+    }
+    .about-text h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--vermelho);
+      margin-bottom: 20px;
+      text-align: left;
+    }
+    .about-text p {
+      font-size: 1.1rem;
+      color: #333;
+      line-height: 1.7;
+      text-align: justify;
+    }
+    .instagram-highlight {
+      background-color: #ffffff;
+      padding: 60px 20px;
+      text-align: center;
+      
+    }
+    .cta-secondary {
+      background-color: var(--vermelho);
+      color: var(--branco);
+      padding: 12px 24px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s ease;
+      display: inline-block;
+        margin-top: 16px;
+    }
+    .cta-secondary:hover {
+      background-color: var(--vermelho-dark);
+    }
+    footer {
+      background-color: #1a1a1a;
+      color: #ccc;
+      padding: 60px 20px;
+      text-align: center;
+      font-size: 0.95rem;
+    }
+    footer p {
+      margin: 10px 0;
+    }
+    .cards-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    .card {
+      background: linear-gradient(to bottom, #8b0000, #6b0000);
+      color: var(--branco);
+      padding: 25px;
+      border-radius: 12px;
+      text-align: left;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card i {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      color: var(--branco);
+    }
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+    .card p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <div class="sticky-header">
+    <nav>
+      <div class="logo">Dra. Jaiane Melo</div>
+      <ul>
+        <li><a href="#formulario">Contato</a></li>
+        <li><a href="#etapas">Etapas</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#instagram">Instagram</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <section class="hero" data-aos="fade-up">
+    <div class="hero-text">
+      <h1>SUA APOSENTADORIA FOI INDEFERIDA?<br>SOMOS ESPECIALISTAS EM DIREITO PREVIDENCIÁRIO.</h1>
+      <p>Toque no botão abaixo e saiba mais informações.</p>
+      <a href="#formulario">CONVERSAR COM A ADVOGADA</a>
+    </div>
+    <div class="hero-img">
+      <img src="/assets/jaiane1.png" alt="Dra. Jaiane Melo" />
+    </div>
+  </section>
+
+  <section class="atuacao-section" data-aos="fade-up">
+    <h2>Áreas de Atuação<br><span style="font-weight: 600">da Dra. Jaiane Melo</span></h2>
+    <div class="cards-container">
+      <div class="card" data-aos="fade-up" data-aos-delay="100">
+        <i class="fas fa-tractor"></i>
+        <h3>Aposentadoria Rural</h3>
+        <p>Assessoria completa para trabalhadores rurais garantirem sua aposentadoria, considerando requisitos como tempo de trabalho no campo e comprovação de atividade.</p>
+      </div>
+      <div class="card" data-aos="fade-up" data-aos-delay="200">
+        <i class="fas fa-city"></i>
+        <h3>Aposentadoria Urbana</h3>
+        <p>Orientação jurídica para trabalhadores urbanos, assegurando o cumprimento de todas as exigências e facilitando a aprovação do benefício no INSS.</p>
+      </div>
+      <div class="card" data-aos="fade-up" data-aos-delay="300">
+        <i class="fas fa-baby"></i>
+        <h3>Atuação Salário Maternidade</h3>
+        <p>Ajuda especializada para trabalhadoras garantirem o direito ao benefício durante o período de afastamento, seja como empregadas formais, autônomas ou seguradas especiais.</p>
+      </div>
+      <div class="card" data-aos="fade-up" data-aos-delay="400">
+        <i class="fas fa-heart"></i>
+        <h3>Pensão por Morte</h3>
+        <p>Assessoria dedicada para assegurar o benefício aos dependentes em momentos delicados, com cuidado e agilidade.</p>
+      </div>
+      <div class="card" data-aos="fade-up" data-aos-delay="500">
+        <i class="fas fa-universal-access"></i>
+        <h3>BPC LOAS deficiente e idoso</h3>
+        <p>Atendimento especializado para garantir o direito ao benefício assistencial de pessoas com deficiência ou idosos de baixa renda.</p>
+      </div>
+      <div class="card" data-aos="fade-up" data-aos-delay="600">
+        <i class="fas fa-notes-medical"></i>
+        <h3>Auxílio Doença</h3>
+        <p>Especialista em obter o auxílio para trabalhadores afastados por problemas de saúde, mesmo em casos de negativas pelo INSS.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="formulario" class="form-section" data-aos="fade-up">
+    <h2>Agende sua consulta gratuita</h2>
+    <form>
+      <input type="text" placeholder="Nome" required />
+      <input type="email" placeholder="E-mail" required />
+      <input type="tel" placeholder="WhatsApp" required />
+      <button type="submit">Solicitar consulta</button>
+    </form>
+  </section>
+
+  <section id="etapas" data-aos="fade-up">
+    <h2>Como Funciona Nosso Atendimento</h2>
+    <div class="timeline">
+      <div class="timeline-step">
+        <div class="step-number">1</div>
+        <h3>Contato Inicial</h3>
+        <p>Você nos envia uma mensagem pelo WhatsApp ou formulário.</p>
+      </div>
+      <div class="timeline-step">
+        <div class="step-number">2</div>
+        <h3>Análise do Caso</h3>
+        <p>Estudamos sua situação e solicitamos documentos necessários.</p>
+      </div>
+      <div class="timeline-step">
+        <div class="step-number">3</div>
+        <h3>Orientação</h3>
+        <p>Apresentamos as melhores soluções jurídicas para seu caso.</p>
+      </div>
+      <div class="timeline-step">
+        <div class="step-number">4</div>
+        <h3>Início do Processo</h3>
+        <p>Com sua autorização, iniciamos os procedimentos legais.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre" class="about-section" data-aos="fade-up">
+    <div class="about-video">
+      <iframe src="https://www.youtube.com/embed/SEU_VIDEO_ID" title="Vídeo da Dra. Jaiane Melo" allowfullscreen></iframe>
+    </div>
+    <div class="about-text">
+      <h2>Saiba mais sobre a Dra. Jaiane Melo</h2>
+      <p>
+        Com 8 anos de experiência na área previdenciária, a Dra. Jaiane Melo é uma profissional dedicada a garantir os direitos de seus clientes. Pós-graduada em Direito Previdenciário, ela une conhecimento técnico e compromisso humano para resolver casos com eficiência e transparência. Seja na busca por benefícios, aposentadorias ou revisões, a Dra. Jaiane é referência na defesa de quem precisa.
+      </p>
+    </div>
+  </section>
+
+  <section id="depoimentos" style="padding: 60px 20px; background-color: #fff;" data-aos="fade-up">
+    <h2 style="text-align:center; font-family: 'Playfair Display', serif; color: #C62828;">O que dizem sobre a Dra. Jaiane Melo</h2>
+    <div style="max-width: 1000px; margin: 40px auto 0; display: flex; flex-direction: column; gap: 30px;">
+  
+      <!-- Comentário 1 -->
+      <div style="display: flex; gap: 20px; align-items: flex-start;">
+        <img src="https://i.pravatar.cc/60?img=32" alt="Cliente 1" style="border-radius: 50%;">
+        <div>
+          <p style="margin: 0; font-style: italic;">"Fui muito bem atendido pela Dra. Jaiane, que foi extremamente clara e objetiva. Em menos de 15 dias já estava com tudo encaminhado. Profissional exemplar!"</p>
+          <strong style="display: block; margin-top: 6px;">Cláudia Damasco</strong>
+          <div style="color: #f5a623;">★★★★★</div>
+        </div>
+      </div>
+  
+      <!-- Comentário 2 -->
+      <div style="display: flex; gap: 20px; align-items: flex-start;">
+        <img src="https://i.pravatar.cc/60?img=12" alt="Cliente 2" style="border-radius: 50%;">
+        <div>
+          <p style="margin: 0; font-style: italic;">"Entrei em contato desacreditada, mas a atenção e empatia da Dra. Jaiane mudaram tudo. Meu processo foi resolvido com muito mais rapidez do que eu esperava!"</p>
+          <strong style="display: block; margin-top: 6px;">Juliano Souza</strong>
+          <div style="color: #f5a623;">★★★★★</div>
+        </div>
+      </div>
+  
+      <!-- Comentário 3 -->
+      <div style="display: flex; gap: 20px; align-items: flex-start;">
+        <img src="https://i.pravatar.cc/60?img=25" alt="Cliente 3" style="border-radius: 50%;">
+        <div>
+          <p style="margin: 0; font-style: italic;">"A equipe foi prestativa do início ao fim. O atendimento via WhatsApp foi rápido e direto ao ponto. A Dra. é muito preparada."</p>
+          <strong style="display: block; margin-top: 6px;">Marcela Vieira</strong>
+          <div style="color: #f5a623;">★★★★☆</div>
+        </div>
+      </div>
+  
+      <!-- Comentário 4 -->
+      <div style="display: flex; gap: 20px; align-items: flex-start;">
+        <img src="https://i.pravatar.cc/60?img=5" alt="Cliente 4" style="border-radius: 50%;">
+        <div>
+          <p style="margin: 0; font-style: italic;">"Dra. Jaiane é um anjo em forma de advogada. Sempre me atualizou sobre meu processo e foi muito humana no atendimento. Hoje estou aposentada graças a ela."</p>
+          <strong style="display: block; margin-top: 6px;">Elisângela Neri</strong>
+          <div style="color: #f5a623;">★★★★★</div>
+        </div>
+      </div>
+  
+      <!-- Comentário 5 -->
+      <div style="display: flex; gap: 20px; align-items: flex-start;">
+        <img src="https://i.pravatar.cc/60?img=16" alt="Cliente 5" style="border-radius: 50%;">
+        <div>
+          <p style="margin: 0; font-style: italic;">"Depois de meses tentando, foi a Dra. Jaiane quem resolveu meu auxílio. Atendimento claro, direto e resolutivo."</p>
+          <strong style="display: block; margin-top: 6px;">Flávia Matos</strong>
+          <div style="color: #f5a623;">★★★★☆</div>
+        </div>
+      </div>
+  
+    </div>
+  </section>  
+
+  <section class="instagram-highlight" id="instagram" data-aos="fade-up">
+    <h2>Siga-nos no Instagram</h2>
+    <p>Receba dicas e novidades sobre Direito Previdenciário.</p>
+    <a href="https://instagram.com/adv.jaianemelo" target="_blank" class="cta-secondary">Siga @adv.jaianemelo</a>
+  </section>
+
+  <footer>
+    <p>© 2024 Dra. Jaiane Melo – Todos os direitos reservados.</p>
+    <p>Email: jaianedejesusmelo@gmail.com</p>
+    <p>Endereço: Travessa Thomaz Febrônio da Rocha, Lagoa Redonda, Itapicuru.</p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>AOS.init({ duration: 1000, once: true });</script>
+</body>
+</html>
